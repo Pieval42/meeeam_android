@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Meeeam</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="meeeam">Meeeam</string>
+    <string name="meeeam_banner">Bannière Meeeam</string>
+    <string name="meeeam_welcome_title">Le réseau social des acteurs du monde de la musique.</string>
+    <string name="meeeam_welcome_subtitle">Lieu d\'échanges, de rencontres et de partage.</string>
+    <string name="sign_up_or_sign_in">Veuillez vous connecter ou vous inscrire pour continuer.</string>
+    <string name="sign_in">Connexion</string>
+    <string name="sign_up">Inscription</string>
+
+</resources>

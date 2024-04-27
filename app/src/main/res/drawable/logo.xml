@@ -1,0 +1,46 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="meeeam_logo"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="132.29"
+    android:viewportHeight="132.29">
+  <path
+      android:pathData="m30.5,32.05 l2.19,-2.63c0,0 -0,27.85 -0,47.42 0.54,16.91 -16.83,17.99 -21.1,13.5 -4.34,-4.65 5.97,-20.09 18.77,-15.05z"
+      android:strokeWidth="0.775629"
+      android:fillColor="@color/meeeam_red"
+      android:fillType="evenOdd"/>
+  <path
+      android:pathData="m71.3,37.3 l2.31,7.29c0,0 0.02,32.86 0.02,52.43 0.54,16.91 -16.83,17.99 -21.1,13.5 -4.34,-4.65 5.97,-20.09 18.77,-15.05z"
+      android:strokeWidth="0.775629"
+      android:fillColor="@color/meeeam_red"
+      android:fillType="evenOdd"/>
+  <path
+      android:pathData="m112.16,55.02 l2.34,1.75c0,0 -0.01,38.4 -0.01,57.97 0.54,16.91 -16.83,17.99 -21.1,13.5 -4.34,-4.65 5.97,-20.09 18.77,-15.05z"
+      android:strokeWidth="0.775629"
+      android:fillColor="@color/meeeam_red"
+      android:fillType="evenOdd"/>
+  <path
+      android:pathData="m32.56,32.05c1.58,-34.5 42.79,-40.78 41.04,13.68l-2.31,-4.52C71.28,-3.2 34.87,4.58 32.68,32.07Z"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1"
+      android:fillColor="@color/meeeam_red"
+      android:strokeLineCap="square"/>
+  <path
+      android:pathData="M119.77,119.2a2.2,2 0,1 0,4.4 0a2.2,2 0,1 0,-4.4 0z"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1.06818"
+      android:fillColor="@color/meeeam_red"
+      android:strokeLineCap="square"/>
+  <path
+      android:pathData="m73.47,45.95c1.03,-32.99 41.3,-42.87 41.02,10.83l-2.33,-0.03c0.01,-45.79 -36.38,-41 -38.56,-10.8z"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1"
+      android:fillColor="@color/meeeam_red"
+      android:strokeLineCap="square"/>
+  <path
+      android:pathData="m11.5,32.91c2.32,-22.42 22.27,-56.36 21.19,0.06l-2.19,0.53c0.04,-32.33 -4.7,-28.82 -10.38,-21.37 -4.68,6.65 -5.74,13.85 -8.61,20.78z"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1"
+      android:fillColor="@color/meeeam_red"
+      android:strokeLineCap="square"/>
+</vector>
