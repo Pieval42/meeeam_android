@@ -1,5 +1,7 @@
 package com.pvalentin.meeeam.network;
 
+import com.pvalentin.meeeam.models.SignInFormModel;
+import com.pvalentin.meeeam.response.SignInResponse;
 import com.pvalentin.meeeam.response.SignUpResponse;
 import com.pvalentin.meeeam.models.SignUpFormModel;
 import com.pvalentin.meeeam.response.CountryListResponse;
@@ -15,4 +17,7 @@ public interface MeeeamApiService {
 
     @POST("inscription/")
     Call<SignUpResponse> setSignUp(@Body SignUpFormModel signUpFormModel);
+
+    @POST("connexion/")
+    Call<SignInResponse> setSignIn(@Body SignInFormModel signInFormModel);
 }

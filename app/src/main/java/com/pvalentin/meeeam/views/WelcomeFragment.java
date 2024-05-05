@@ -19,6 +19,8 @@ public class WelcomeFragment extends Fragment {
 
     private FragmentWelcomeBinding binding;
     public static SignUpFragment signUpFragment;
+    public static SignInFragment signInFragment;
+
 
     public static WelcomeFragment newInstance() {
         return new WelcomeFragment();
@@ -39,12 +41,17 @@ public class WelcomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
+        binding.btnSignIn.setOnClickListener(v -> {
+            binding.welcomeProgressBar.setVisibility(View.VISIBLE);
+            FragmentManager fragmentManager = getParentFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            signInFragment = SignInFragment.newInstance(this);
+            fragmentTransaction.add(R.id.fragment_container_view, signInFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
         });
+
         binding.btnSignUp.setOnClickListener(v -> {
             binding.welcomeProgressBar.setVisibility(View.VISIBLE);
             FragmentManager fragmentManager = getParentFragmentManager();
@@ -57,6 +64,6 @@ public class WelcomeFragment extends Fragment {
     }
 
     public void hideProgressBar() {
-        binding.welcomeProgressBar.setVisibility(View.GONE);
+        binding.welcomeProgressBar.setVisibility(View.INVISIBLE);
     }
 }

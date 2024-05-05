@@ -8,11 +8,14 @@ import androidx.annotation.NonNull;
 import com.google.gson.Gson;
 import com.pvalentin.meeeam.R;
 import com.pvalentin.meeeam.config.Constants;
+import com.pvalentin.meeeam.models.SignInFormModel;
 import com.pvalentin.meeeam.models.SignUpFormModel;
 import com.pvalentin.meeeam.network.MeeeamApiService;
 import com.pvalentin.meeeam.request.ApiService;
 import com.pvalentin.meeeam.response.RetrofitResponse;
+import com.pvalentin.meeeam.response.SignInResponse;
 import com.pvalentin.meeeam.response.SignUpResponse;
+import com.pvalentin.meeeam.views.SignInFragment;
 import com.pvalentin.meeeam.views.SignUpFragment;
 
 import java.util.Objects;
@@ -21,23 +24,23 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SignUpRepository {
+public class SignInRepository {
     private static final RetrofitResponse serviceResponse = new RetrofitResponse(
             "", "", "", "");
 
-    public static void callSignUpService(SignUpFragment signUpFragment, SignUpFormModel signUpForm, Context context) {
+    public static void callSignUpService(SignInFragment signInFragment, SignInFormModel signInForm, Context context) {
         final String TAG = Constants.TAG;
 
         MeeeamApiService apiService = ApiService.getMeeeamApiService();
 
-        Call<SignUpResponse> responseCall = apiService.setSignUp(signUpForm);
+        Call<SignInResponse> responseCall = apiService.setSignIn(signInForm);
 
         assert responseCall != null;
         try {
-            responseCall.enqueue(new Callback<SignUpResponse>() {
+            responseCall.enqueue(new Callback<SignInResponse>() {
                 @Override
-                public void onResponse(@NonNull Call<SignUpResponse> call,
-                                       @NonNull Response<SignUpResponse> response) {
+                public void onResponse(@NonNull Call<SignInResponse> call,
+                                       @NonNull Response<SignInResponse> response) {
 
                     assert response.body() != null;
                     serviceResponse.setStatus(response.body().getStatus());
@@ -50,11 +53,11 @@ public class SignUpRepository {
                         assert response.body() != null;
                         Log.d(TAG, response.body().getMessage());
                     }
-                    signUpFragment.displayServiceResponse(serviceResponse);
+                    signInFragment.displayServiceResponse(serviceResponse);
                 }
 
                 @Override
-                public void onFailure(@NonNull Call<SignUpResponse> call,
+                public void onFailure(@NonNull Call<SignInResponse> call,
                                       @NonNull Throwable throwable) {
                     serviceResponse.setStatus("failed");
                     serviceResponse.setMessage(context.getString(R.string.network_error));
@@ -64,7 +67,7 @@ public class SignUpRepository {
                     } catch (Throwable e) {
                         Log.d(TAG, Objects.requireNonNull(e.getMessage()));
                     }
-                    signUpFragment.displayServiceResponse(serviceResponse);
+                    signInFragment.displayServiceResponse(serviceResponse);
                 }
             });
         } catch (Exception e) {

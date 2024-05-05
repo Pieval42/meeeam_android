@@ -48,6 +48,7 @@ public class SignUpFragment extends Fragment {
     public static TextInputEditText dateInput;
     private final WelcomeFragment welcomeFragment;
     private final SignUpFormModel signUpForm;
+    private final InputValidation inputValidation;
     private FragmentSignUpBinding binding;
     private List<CountryModel> countries;
     private ArrayList<String> countriesName = new ArrayList<>();
@@ -61,7 +62,7 @@ public class SignUpFragment extends Fragment {
                 "", "", "", "", "", "",
                 "", "", 0, "I", ""
         );
-
+        inputValidation = new InputValidation();
     }
 
     public static SignUpFragment newInstance(WelcomeFragment welcomeFragment) {
@@ -79,7 +80,7 @@ public class SignUpFragment extends Fragment {
             String city = signUpForm.getNom_ville();
             String website = signUpForm.getSite_web();
 
-            boolean isFormValid = InputValidation.validateSignUpForm(pseudo, email, password,
+            boolean isFormValid = inputValidation.validateSignUpForm(pseudo, email, password,
                     confirmPassword, firstName, lastName, birthDateNotConverted, postCode,
                     city, website);
             binding.confirmSignUp.setEnabled(isFormValid);
@@ -101,6 +102,7 @@ public class SignUpFragment extends Fragment {
         binding.signUpErrorMessage.setText("");
     }
 
+    // TODO: Améliorer UX en chargeant la liste de pays dans onViewCreated
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -60,17 +60,72 @@ public class InputValidation {
         return Pattern.matches(Patterns.WEB_URL.toString(), website);
     }
 
-    public static boolean validateRequiredFields(String pseudo, String email,
-                                                 String password, String confirmPassword, String firstName,
-                                                 String lastName, String birthDateNotConverted) {
+    public class RequiredFields {
+        private final String pseudo;
+        private final String email;
+        private final String password;
+        private final String confirmPassword;
+        private final String firstName;
+        private final String lastName;
+        private final String birthDateNotConverted;
 
-        boolean isPseudoValid = validatePseudo(pseudo);
-        boolean isEmailValid = validateEmail(email);
-        boolean isPasswordValid = validatePassword(password);
-        boolean isConfirmPasswordValid = validateConfirmPassword(password, confirmPassword);
-        boolean isFirstNameValid = validateFirstName(firstName);
-        boolean isLastNameValid = validateLastName(lastName);
-        boolean isBirthDateValid = validateBirthDate(birthDateNotConverted);
+        public RequiredFields(String pseudo, String email, String password,
+                                     String confirmPassword, String firstName, String lastName,
+                                     String birthDateNotConverted) {
+            this.pseudo = pseudo;
+            this.email = email;
+            this.password = password;
+            this.confirmPassword = confirmPassword;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.birthDateNotConverted = birthDateNotConverted;
+        }
+    }
+
+    public class RequiredFieldsBuilder {
+        private String pseudo = "";
+        private String email = "";
+        private String password = "";
+        private String confirmPassword = "";
+        private String firstName = "";
+        private String lastName = "";
+        private String birthDateNotConverted = "";
+
+
+        public RequiredFieldsBuilder setSignUp(String pseudo, String email, String password,
+                                     String confirmPassword, String firstName, String lastName,
+                                     String birthDateNotConverted) {
+            this.pseudo = pseudo;
+            this.email = email;
+            this.password = password;
+            this.confirmPassword = confirmPassword;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.birthDateNotConverted = birthDateNotConverted;
+            return this;
+        }
+
+        public RequiredFieldsBuilder setSignIn(String email, String password) {
+            this.email = email;
+            this.password = password;
+            return this;
+        }
+
+        public RequiredFields build() {
+            return new RequiredFields(pseudo, email, password, confirmPassword, firstName, lastName,
+                    birthDateNotConverted);
+        }
+    }
+    public static boolean validateRequiredFields(RequiredFields requiredFields) {
+
+        boolean isPseudoValid = validatePseudo(requiredFields.pseudo);
+        boolean isEmailValid = validateEmail(requiredFields.email);
+        boolean isPasswordValid = validatePassword(requiredFields.password);
+        boolean isConfirmPasswordValid = validateConfirmPassword(requiredFields.password,
+                requiredFields.confirmPassword);
+        boolean isFirstNameValid = validateFirstName(requiredFields.firstName);
+        boolean isLastNameValid = validateLastName(requiredFields.lastName);
+        boolean isBirthDateValid = validateBirthDate(requiredFields.birthDateNotConverted);
 
         return isPseudoValid && isEmailValid && isPasswordValid && isConfirmPasswordValid &&
                 isFirstNameValid && isLastNameValid && isBirthDateValid;
@@ -84,18 +139,36 @@ public class InputValidation {
         return isPostCodeValid && isCityValid && isWebsiteValid;
     }
 
-    public static boolean validateSignUpForm(String pseudo, String email, String password,
-                                             String confirmPassword, String firstName, String lastName,
-                                             String birthDateNotConverted, String postCode, String city,
-                                             String website) {
+    public boolean validateSignInFields(String email, String password) {
+        boolean isEmailValid = validateEmail(email);
+        boolean isPasswordValid = validatePassword(password);
+
+        return isEmailValid && isPasswordValid;
+    }
+
+    public boolean validateSignUpForm(String pseudo, String email, String password,
+                                      String confirmPassword, String firstName, String lastName,
+                                      String birthDateNotConverted, String postCode, String city,
+                                      String website) {
         boolean requiredFieldsAreNotEmpty = !pseudo.isEmpty() && !password.isEmpty()
                 && !firstName.isEmpty() && !lastName.isEmpty() && !birthDateNotConverted.isEmpty()
                 && !email.isEmpty();
-        boolean allRequiredFieldsAreValid = InputValidation.validateRequiredFields(pseudo, email,
-                password, confirmPassword, firstName, lastName, birthDateNotConverted);
+
+        RequiredFields requiredFields = new RequiredFieldsBuilder().setSignUp(pseudo, email,
+                password, confirmPassword, firstName, lastName, birthDateNotConverted).build();
+
+        boolean allRequiredFieldsAreValid = InputValidation.validateRequiredFields(requiredFields);
         boolean otherFieldsAreValid = InputValidation.validateNotRequiredFields(postCode, city,
                 website);
 
         return requiredFieldsAreNotEmpty && allRequiredFieldsAreValid && otherFieldsAreValid;
+    }
+
+    public boolean validateSignInForm(String email, String password) {
+        boolean fieldsAreNotEmpty = !password.isEmpty() && !email.isEmpty();
+
+        boolean fieldsAreValid = validateSignInFields(email, password);
+
+        return fieldsAreNotEmpty && fieldsAreValid;
     }
 }
