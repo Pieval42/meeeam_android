@@ -7,6 +7,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
+        manifestPlaceholders["hostName"] = "www.meeeam.com"
         applicationId = "com.pvalentin.meeeam"
         minSdk = 24
         targetSdk = 34
@@ -24,10 +25,22 @@ android {
                 "proguard-rules.pro"
             )
         }
+        debug {
+            applicationIdSuffix = ".debug"
+            isDebuggable = true
+        }
+        create("staging") {
+            initWith(getByName("debug"))
+            manifestPlaceholders["hostName"] = "internal.meeeam.com"
+            applicationIdSuffix = ".debugStaging"
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -40,4 +53,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 }

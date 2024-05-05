@@ -8,7 +8,7 @@
     android:background="@color/dark_background"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".WelcomeFragment">
+    tools:context=".views.WelcomeFragment">
 
     <ImageView
         android:id="@+id/imageView"
@@ -93,5 +93,13 @@
                 android:layout_marginStart="20dp"
                 android:text="@string/sign_up" />
         </LinearLayout>
+        <ProgressBar
+            android:id="@+id/welcome_progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateBehavior="cycle"
+            android:visibility="gone"/>
     </LinearLayout>
 </LinearLayout>

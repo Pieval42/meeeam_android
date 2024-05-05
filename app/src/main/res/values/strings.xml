@@ -1,12 +1,73 @@
 <resources>
     <string name="app_name">Meeeam</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="meeeam">Meeeam</string>
     <string name="meeeam_banner">Bannière Meeeam</string>
-    <string name="meeeam_welcome_title">Le réseau social des acteurs du monde de la musique.</string>
-    <string name="meeeam_welcome_subtitle">Lieu d\'échanges, de rencontres et de partage.</string>
-    <string name="sign_up_or_sign_in">Veuillez vous connecter ou vous inscrire pour continuer.</string>
+    <string name="meeeam_welcome_title">
+        Le réseau social des acteurs du monde de la musique.
+    </string>
+    <string name="meeeam_welcome_subtitle">
+        Lieu d\'échanges, de rencontres et de partage.
+    </string>
+    <string name="sign_up_or_sign_in">
+        Veuillez vous connecter ou vous inscrire pour continuer.
+    </string>
     <string name="sign_in">Connexion</string>
     <string name="sign_up">Inscription</string>
-
+    <string name="nickname">Pseudo *</string>
+    <string name="last_name">Nom *</string>
+    <string name="first_name">Prénom *</string>
+    <string name="birth_date">Date de naissance *</string>
+    <string name="email">Adresse e-mail *</string>
+    <string name="password">Mot de passe *</string>
+    <string name="confirm_password">Confirmer mot de passe *</string>
+    <string name="postcode">Code Postal</string>
+    <string name="city">Ville</string>
+    <string name="country">Pays</string>
+    <string name="gender">Genre</string>
+    <string name="website">Site Web</string>
+    <string name="pick_a_date">Choisir une date</string>
+    <string name="meeeam_logo">Logo Meeeam</string>
+    <string name="confirm_sign_up">S\'inscrire</string>
+    <string name="man">Homme</string>
+    <string name="woman">Femme</string>
+    <string name="non_binary">Non-binaire</string>
+    <string name="info_required_field">
+        Les champs marqués d\'une * sont obligatoires.
+    </string>
+    <string name="error_message_missing_field">
+        Un ou plusieurs champs obligatoires ne sont pas remplis.
+    </string>
+    <string name="error_message_nickname_not_valid">
+        Pseudo invalide. Votre pseudo doit commencer par une lettre et peut contenir des lettres,
+        des chiffres et les symboles - et _ uniquement.
+        Longueur exigée entre 4 et 20 caractères.
+    </string>
+    <string name="error_message_passwords_dont_match">
+        Les 2 mots de passe ne correspondent pas.
+    </string>
+    <string name="error_message_email_not_valid">
+        Adresse e-mail invalide.
+    </string>
+    <string name="error_message_password_not_valid">
+        Mot de passe trop faible. Votre mot de passe doit contenir au moins 10 caractères,
+        dont au moins une minuscule, une majuscule, un chiffre et un caractère spécial.
+    </string>
+    <string name="error_message_first_name_not_valid">
+        Votre prénom peut contenir uniquement des lettres et les symboles \' et -
+    </string>
+    <string name="error_message_last_name_not_valid">
+        Votre nom peut contenir uniquement des lettres et les symboles \' et -
+    </string>
+    <string name="error_message_date_not_valid">
+        Date invalide. La date doit être au format jj/mm/aaaa.
+    </string>
+    <string name="error_message_postcode_not_valid">Code postal invalide.</string>
+    <string name="error_message_city_not_valid">
+        "Un nom de ville peut contenir uniquement des lettres et les symboles \' et -"
+    </string>
+    <string name="error_message_country_not_valid">Pays invalide.</string>
+    <string name="error_message_website_not_valid">Format d\'URL invalide.</string>
+    <string name="network_error">Erreur réseau.</string>
+    <string name="unknown_error">Erreur inconnue.</string>
+    <string name="sending_form_in_progress">Envoi du formulaire en cours...</string>
 </resources>

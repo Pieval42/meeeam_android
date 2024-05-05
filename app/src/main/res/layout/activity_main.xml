@@ -4,6 +4,6 @@
     android:id="@+id/fragment_container_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:name="com.pvalentin.meeeam.WelcomeFragment"
+    android:name="com.pvalentin.meeeam.views.WelcomeFragment"
     android:background="@color/dark_background"
 />
