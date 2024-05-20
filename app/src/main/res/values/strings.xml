@@ -71,4 +71,5 @@
     <string name="unknown_error">Erreur inconnue.</string>
     <string name="sending_form_in_progress">Envoi du formulaire en cours...</string>
     <string name="confirm_sign_in">Se connecter</string>
+    <string name="country_list_not_loaded">Chargement de la liste de pays impossible</string>
 </resources>

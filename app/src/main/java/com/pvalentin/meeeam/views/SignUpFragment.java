@@ -1,5 +1,8 @@
 package com.pvalentin.meeeam.views;
 
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_CUSTOM;
+import static com.pvalentin.meeeam.utils.drawableUtils.getProgressBarDrawable;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -102,7 +105,6 @@ public class SignUpFragment extends Fragment {
         binding.signUpErrorMessage.setText("");
     }
 
-    // TODO: Améliorer UX en chargeant la liste de pays dans onViewCreated
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,53 +113,62 @@ public class SignUpFragment extends Fragment {
     }
 
     private void getCountryList() {
-        MeeeamApiService apiService = ApiService.getMeeeamApiService();
+        try {
+            MeeeamApiService apiService = ApiService.getMeeeamApiService();
 
-        Call<CountryListResponse> responseCall = apiService.getCountries();
-        assert responseCall != null;
-        responseCall.enqueue(new Callback<CountryListResponse>() {
-            @Override
-            public void onResponse(@NonNull Call<CountryListResponse> call,
-                                   @NonNull Response<CountryListResponse> response) {
-                if (response.code() == 200) {
-                    try {
-                        assert response.body() != null;
-                        Log.d(TAG, response.body().toString());
-                        countries = new ArrayList<>(response.body().getCountries());
-                        countriesName.add("");
-                        for (CountryModel country : countries) {
-                            countriesName.add(country.getNameFr());
+            Call<CountryListResponse> responseCall = apiService.getCountries();
+            assert responseCall != null;
+            responseCall.enqueue(new Callback<CountryListResponse>() {
+                @Override
+                public void onResponse(@NonNull Call<CountryListResponse> call,
+                                       @NonNull Response<CountryListResponse> response) {
+                    if (response.code() == 200) {
+                        try {
+                            assert response.body() != null;
+                            Log.d(TAG, response.body().toString());
+                            countries = new ArrayList<>(response.body().getCountries());
+                            countriesName.add("");
+                            for (CountryModel country : countries) {
+                                countriesName.add(country.getNameFr());
+                            }
+                            binding.signUpLayoutCountry.setEndIconMode(TextInputLayout.END_ICON_DROPDOWN_MENU);
+                            ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                                    requireContext(),
+                                    R.layout.dropdown_menu_popup_item,
+                                    countriesName
+                            );
+                            AutoCompleteTextView signUpDropdownCountries = binding.signUpDropdownCountries;
+                            signUpDropdownCountries.setAdapter(adapter);
+
+                        } catch (Exception e) {
+                            Log.d(TAG, Objects.requireNonNull(e.getMessage()));
                         }
-                        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                                requireContext(),
-                                R.layout.dropdown_menu_popup_item,
-                                countriesName
-                        );
-                        AutoCompleteTextView signUpDropdownCountries = binding.signUpDropdownCountries;
-                        signUpDropdownCountries.setAdapter(adapter);
-                    } catch (Exception e) {
-                        Log.d(TAG, Objects.requireNonNull(e.getMessage()));
-                    }
 
-                } else {
-                    try {
-                        assert response.errorBody() != null;
-                        Log.d(TAG, response.errorBody().toString());
-                    } catch (Exception e) {
-                        Log.d(TAG, Objects.requireNonNull(e.getMessage()));
+                    } else {
+                        try {
+                            assert response.errorBody() != null;
+                            Log.d(TAG, response.errorBody().toString());
+                        } catch (Exception e) {
+                            Log.d(TAG, Objects.requireNonNull(e.getMessage()));
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onFailure(@NonNull Call<CountryListResponse> call, @NonNull Throwable throwable) {
-                try {
-                    throw throwable;
-                } catch (Throwable e) {
-                    throw new RuntimeException(e);
+                @Override
+                public void onFailure(
+                        @NonNull Call<CountryListResponse> call, @NonNull Throwable throwable
+                ) {
+                    binding.signUpLayoutCountry.setEndIconMode(TextInputLayout.END_ICON_NONE);
+                    binding.signUpLayoutCountry.setError(
+                            getString(R.string.network_error) + " - "
+                                    + getString(R.string.country_list_not_loaded)
+                    );
                 }
-            }
-        });
+            });
+        } catch (Exception e) {
+            Log.d(TAG, Objects.requireNonNull(e.getMessage()));
+        }
+
     }
 
     @Override
@@ -172,6 +183,9 @@ public class SignUpFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         welcomeFragment.hideProgressBar();
+
+        binding.signUpLayoutCountry.setEndIconMode(END_ICON_CUSTOM);
+        binding.signUpLayoutCountry.setEndIconDrawable(getProgressBarDrawable(requireContext()));
 
         binding.signUpInputPseudo.addTextChangedListener(new TextWatcher() {
             @Override
