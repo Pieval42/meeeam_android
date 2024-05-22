@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="dark_grey">#FF212529</color>
+    <color name="dark_grey_secondary">#FF272B2F</color>
+    <color name="charcoal_grey">#FF3E4145</color>
+    <color name="gravel">#FF474A4D</color>
+    <color name="shuttle_grey">#FF65696D</color>
+    <color name="smokey_grey">#FF6D6F71</color>
+    <color name="oslo_grey">#FF8F8F8F</color>
+    <color name="silver">#CACACA</color>
+    <color name="light_grey">#D6DADD</color>
+    <color name="platinum">#FFDEE2E6</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="dark_background">#FF212529</color>
-    <color name="dark_background_secondary">#FF272B2F</color>
-    <color name="btn_primary">#FF8F8F8F</color>
-    <color name="btn_secondary">#FF000000</color>
-    <color name="btn_disabled">#FF474A4D</color>
-    <color name="text_primary">#FFDEE2E6</color>
-    <color name="text_warning">#FFFFC107</color>
-    <color name="btn_text_disabled">#FF6D6F71</color>
+    <color name="amber">#FFFFC107</color>
     <color name="meeeam_red">#FFDE0A00</color>
-    <color name="border_primary">#FF3E4145</color>
-    <color name="border_disabled">#FF65696D</color>
 </resources>

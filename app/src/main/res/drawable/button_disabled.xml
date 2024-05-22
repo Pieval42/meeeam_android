@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
-    <solid android:color="@color/btn_disabled"/>
+    <solid android:color="?attr/colorOnSecondaryFixed"/>
     <stroke
         android:width="1dip"
-        android:color="@color/border_disabled" />
+        android:color="?attr/colorOnSecondaryFixedVariant" />
     <corners android:radius= "8dp" />
     <padding android:left="15dp" android:top="6dp" android:right="15dp" android:bottom="6dp" />
 </shape>

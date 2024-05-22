@@ -8,13 +8,14 @@
     </style>
     <style name="button.primary">
         <item name="android:background">@drawable/button_primary</item>
-        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
     <style name="button.secondary">
         <item name="android:background">@drawable/button_secondary</item>
-        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColor">?attr/colorOnSecondary</item>
     </style>
-    <style name="dropdown_left_arrow" parent="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-        <item name="endIconMode">none</item>
+    <style name="customDropdownMenu" parent="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="strokeColor">?attr/strokeColor</item>
+        <item name="textOutlineColor">?attr/colorPrimary</item>
     </style>
 </resources>

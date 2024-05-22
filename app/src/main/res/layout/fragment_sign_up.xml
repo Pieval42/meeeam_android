@@ -10,10 +10,10 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/dark_background"
+        android:background="?attr/backgroundColor"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        tools:context=".views.SignUpFragment">
+        tools:context=".ui.SignUpFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -181,7 +181,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                style="@style/customDropdownMenu"
                 android:id="@+id/sign_up_layout_country"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -246,7 +246,6 @@
                 android:layout_marginVertical="5dp"
                 android:text="@string/info_required_field"
                 android:textAlignment="center"
-                android:textColor="@color/text_primary"
                 android:textSize="14sp" />
 
             <TextView
@@ -256,7 +255,7 @@
                 android:layout_marginVertical="5dp"
                 android:text=""
                 android:textAlignment="center"
-                android:textColor="@color/text_warning"
+                android:textColor="?attr/colorTertiary"
                 android:textSize="14sp"
                 android:visibility="gone" />
             <LinearLayout
@@ -269,7 +268,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:textColor="@color/text_primary"
                     android:textSize="14sp"
                     android:text="@string/sending_form_in_progress"/>
                 <ProgressBar

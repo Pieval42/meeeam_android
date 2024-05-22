@@ -2,13 +2,29 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Meeeam" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="colorPrimary">@color/meeeam_red</item>
-        <item name="backgroundColor">@color/dark_background</item>
-        <item name="strokeColor">@color/border_primary</item>
-        <item name="colorSecondary">@color/text_warning</item>
-        <item name="android:statusBarColor">@color/dark_background</item>
+        <item name="colorPrimary">@color/dark_grey</item>
+        <item name="backgroundColor">@color/platinum</item>
+        <item name="strokeColor">@color/oslo_grey</item>
+        <item name="colorSecondary">@color/meeeam_red</item>
+        <item name="colorTertiary">@color/amber</item>
+        <item name="colorPrimaryVariant">@color/charcoal_grey</item>
+        <item name="colorOnPrimary">@color/silver</item>
+        <item name="colorOnBackground">@color/light_grey</item>
+        <item name="colorSecondaryVariant">@color/silver</item>
+        <item name="colorOnSecondary">@color/smokey_grey</item>
+        <item name="colorPrimarySurface">@color/dark_grey_secondary</item>
+        <item name="colorOnSecondaryFixed">@color/light_grey</item>
+        <item name="colorOnSecondaryFixedVariant">@color/white</item>
     </style>
 
-    <style name="Theme.Meeeam" parent="Base.Theme.Meeeam" />
+    <style name="Theme.Meeeam" parent="Base.Theme.Meeeam"></style>
+
+    <style name="Theme.Meeeam.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Meeeam.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Meeeam.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

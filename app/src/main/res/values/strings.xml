@@ -2,16 +2,16 @@
     <string name="app_name">Meeeam</string>
     <string name="meeeam">Meeeam</string>
     <string name="meeeam_banner">Bannière Meeeam</string>
-    <string name="meeeam_welcome_title">
+    <string name="meeeam_home_title">
         Le réseau social des acteurs du monde de la musique.
     </string>
-    <string name="meeeam_welcome_subtitle">
+    <string name="meeeam_home_subtitle">
         Lieu d\'échanges, de rencontres et de partage.
     </string>
-    <string name="sign_up_or_sign_in">
+    <string name="sign_up_or_login">
         Veuillez vous connecter ou vous inscrire pour continuer.
     </string>
-    <string name="sign_in">Connexion</string>
+    <string name="login">Connexion</string>
     <string name="sign_up">Inscription</string>
     <string name="nickname">Pseudo *</string>
     <string name="last_name">Nom *</string>
@@ -70,6 +70,20 @@
     <string name="network_error">Erreur réseau.</string>
     <string name="unknown_error">Erreur inconnue.</string>
     <string name="sending_form_in_progress">Envoi du formulaire en cours...</string>
-    <string name="confirm_sign_in">Se connecter</string>
+    <string name="confirm_login">Se connecter</string>
     <string name="country_list_not_loaded">Chargement de la liste de pays impossible</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="auth_prefs">com.pvalentin.meeeam.AUTH_TOKEN</string>
+    <string name="title_activity_main_logged_in">MainLoggedInActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 </resources>

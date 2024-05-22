@@ -4,6 +4,7 @@
     android:id="@+id/fragment_container_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:name="com.pvalentin.meeeam.views.WelcomeFragment"
-    android:background="@color/dark_background"
-/>
+    android:name="com.pvalentin.meeeam.ui.HomeFragment"
+    android:background="?attr/backgroundColor"
+    android:fitsSystemWindows="true"
+    />
