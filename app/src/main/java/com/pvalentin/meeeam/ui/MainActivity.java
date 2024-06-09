@@ -12,11 +12,14 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.pvalentin.meeeam.R;
+import com.pvalentin.meeeam.SubApplication;
 
 public class MainActivity extends AppCompatActivity {
+    protected SubApplication mMyApp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mMyApp = (SubApplication)this.getApplicationContext();
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.fragment_container_view), (v, insets) -> {
@@ -27,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         
         // Personnalisation de la status bar et de la navigation bar
         TypedValue typedValue = new TypedValue();
-        getTheme().resolveAttribute(com.google.android.material.R.attr.backgroundColor, typedValue, true);
+        getTheme().resolveAttribute(com.google.android.material.R.attr.colorOnBackground, typedValue, true);
         int color = typedValue.data;
         Window window = getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);

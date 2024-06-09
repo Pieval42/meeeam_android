@@ -11,7 +11,7 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class CheckDateFormat {
-    private static final String TAG = Constants.TAG;
+    private static final String TAG = Constants.TAG + "." + CheckDateFormat.class.getSimpleName();
     public static boolean isValidFormat(String value) {
         String format = "dd/MM/yyyy";
         Date date = null;

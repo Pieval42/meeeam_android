@@ -4,8 +4,8 @@ public class SignUpResponse extends ApiResponse {
   
   private SignUpData data;
   
-  public SignUpResponse(String status, String message, SignUpData data, String token) {
-    super(status, message, token);
+  public SignUpResponse(String status, String message, SignUpData data, String access_token, String refresh_token) {
+    super(status, message, access_token, refresh_token);
     this.data = data;
   }
   

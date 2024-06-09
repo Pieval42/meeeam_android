@@ -14,8 +14,8 @@ public class SignUpRequest {
     private String site_web;
 
     public SignUpRequest(String pseudo, String password, String firstName,
-                         String lastName, String birthDate, String email, String code_postal, String city,
-                         int country, String gender, String website) {
+                         String lastName, String birthDate, String email, String code_postal,
+                         String city, int country, String gender, String website) {
         this.pseudo = pseudo;
         this.password = password;
         this.prenom = firstName;

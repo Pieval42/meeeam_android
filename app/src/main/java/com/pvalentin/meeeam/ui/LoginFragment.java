@@ -32,7 +32,7 @@ import java.util.Objects;
 
 public class LoginFragment extends Fragment {
 
-    private final String TAG = Constants.TAG;
+    private final String TAG = Constants.TAG + "." + LoginFragment.class.getSimpleName();
     private final HomeFragment homeFragment;
     private final LoginRequest loginRequest;
     private final InputValidation inputValidation;
@@ -195,15 +195,6 @@ public class LoginFragment extends Fragment {
                 binding.loginErrorMessage.setVisibility(View.VISIBLE);
                 binding.loginErrorMessage.setText(getString(R.string.unknown_error));
         }
-    }
-    
-    public void navigateToMainLoggedInFragment() {
-        FragmentManager fragmentManager = getParentFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager
-            .beginTransaction();
-        fragmentTransaction.setReorderingAllowed(true);
-        fragmentTransaction.replace(R.id.fragment_container_view, MainLoggedInFragment.class, null);
-        fragmentTransaction.commit();
     }
     
     public void navigateToMainLoggedInActivity() {

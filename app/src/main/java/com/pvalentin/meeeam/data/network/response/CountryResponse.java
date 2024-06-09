@@ -10,13 +10,13 @@ import java.util.List;
  */
 public class CountryResponse extends ApiResponse {
   
-  
   @SerializedName("data")
   private List<CountryModel> countries;
   
-  public CountryResponse(String status, String message, String token) {
-    super(status, message, token);
+  public CountryResponse(String status, String message, String access_token, String refresh_token) {
+    super(status, message, access_token, refresh_token);
   }
+  
   
   public List<CountryModel> getCountries() {
     return countries;

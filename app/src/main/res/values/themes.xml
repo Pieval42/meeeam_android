@@ -15,9 +15,11 @@
         <item name="colorPrimarySurface">@color/dark_grey_secondary</item>
         <item name="colorOnSecondaryFixed">@color/light_grey</item>
         <item name="colorOnSecondaryFixedVariant">@color/white</item>
+        <item name="boxBackgroundColor">@color/white</item>
+
     </style>
 
-    <style name="Theme.Meeeam" parent="Base.Theme.Meeeam"></style>
+    <style name="Theme.Meeeam" parent="Base.Theme.Meeeam" />
 
     <style name="Theme.Meeeam.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -26,5 +28,7 @@
 
     <style name="Theme.Meeeam.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.Meeeam.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.Meeeam.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="actionMenuTextColor">@color/dark_grey</item>
+    </style>
 </resources>

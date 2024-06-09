@@ -69,10 +69,9 @@
     <string name="error_message_website_not_valid">Format d\'URL invalide.</string>
     <string name="network_error">Erreur réseau.</string>
     <string name="unknown_error">Erreur inconnue.</string>
-    <string name="sending_form_in_progress">Envoi du formulaire en cours...</string>
+    <string name="sending_form_in_progress">Envoi du formulaire en cours…</string>
     <string name="confirm_login">Se connecter</string>
     <string name="country_list_not_loaded">Chargement de la liste de pays impossible</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="auth_prefs">com.pvalentin.meeeam.AUTH_TOKEN</string>
     <string name="title_activity_main_logged_in">MainLoggedInActivity</string>
@@ -81,9 +80,11 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="loading_in_process">Chargement en cours…</string>
+    <string name="menu_messages">Messages</string>
+    <string name="menu_profile">Profil</string>
+    <string name="menu_pages">Pages</string>
+    <string name="profile_picture">Image de profil</string>
+    <string name="new_post">Nouvelle publication</string>
 </resources>

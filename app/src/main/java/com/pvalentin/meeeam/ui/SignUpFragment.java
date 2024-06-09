@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class SignUpFragment extends Fragment {
-  private static final String TAG = Constants.TAG;
+  private static final String TAG = Constants.TAG + "." + SignUpFragment.class.getSimpleName();
   public static TextInputEditText dateInput;
   private final HomeFragment homeFragment;
   private final SignUpRequest signUpForm;
@@ -49,8 +49,6 @@ public class SignUpFragment extends Fragment {
   private ArrayList<String> countriesName = new ArrayList<>();
   private String birthDateNotConverted;
   private String confirmPassword;
-  
-  
   public SignUpFragment(HomeFragment homeFragment) {
     this.homeFragment = homeFragment;
     signUpForm = new SignUpRequest(
@@ -59,11 +57,9 @@ public class SignUpFragment extends Fragment {
     );
     inputValidation = new InputValidation();
   }
-  
   public static SignUpFragment newInstance(HomeFragment homeFragment) {
     return new SignUpFragment(homeFragment);
   }
-  
   private void enableButton() {
     try {
       String pseudo = signUpForm.getPseudo();
@@ -83,7 +79,6 @@ public class SignUpFragment extends Fragment {
       Log.d(TAG, Objects.requireNonNull(e.getMessage()));
     }
   }
-  
   private void disableButton() {
     try {
       binding.confirmSignUp.setEnabled(false);
@@ -91,12 +86,10 @@ public class SignUpFragment extends Fragment {
       Log.d(TAG, Objects.requireNonNull(e.getMessage()));
     }
   }
-  
   private void resetErrorView() {
     binding.signUpErrorMessage.setVisibility(View.GONE);
     binding.signUpErrorMessage.setText("");
   }
-  
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -445,12 +438,12 @@ public class SignUpFragment extends Fragment {
   private void submitSignUpForm() {
     try {
       resetErrorView();
-      signUpForm.setBirthDate(ConvertDateFormat.convertDateFormat(birthDateNotConverted));
+      signUpForm.setBirthDate(ConvertDateFormat.convertDateFormatFrToSql(birthDateNotConverted));
       String countryName = String.valueOf(binding.signUpDropdownCountries.getText());
       int idPays = countriesName.indexOf(countryName);
       signUpForm.setId_pays(idPays);
     } catch (ParseException e) {
-      throw new RuntimeException(e);
+      Log.d(TAG, Objects.requireNonNull(e.getMessage()));
     }
     
     signUpViewModel.signUp(this, signUpForm, requireContext());

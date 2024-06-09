@@ -1,5 +1,7 @@
 package com.pvalentin.meeeam.data.repository;
 
+import static com.pvalentin.meeeam.util.Constants.AUTH_PREFS_FILE;
+
 import android.content.Context;
 import android.util.Log;
 
@@ -7,11 +9,10 @@ import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
 import com.pvalentin.meeeam.R;
-import com.pvalentin.meeeam.util.Constants;
-import com.pvalentin.meeeam.data.network.request.SignUpRequest;
 import com.pvalentin.meeeam.data.network.ApiService;
 import com.pvalentin.meeeam.data.network.NetworkClient;
-import com.pvalentin.meeeam.data.network.response.SignUpResponse;
+import com.pvalentin.meeeam.data.network.response.MessagesResponse;
+import com.pvalentin.meeeam.util.Constants;
 
 import java.util.Objects;
 
@@ -19,39 +20,47 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SignUpRepository {
-  private static final String TAG = Constants.TAG + "." +SignUpRepository.class.getSimpleName();
-  private static final SignUpResponse serviceResponse = new SignUpResponse(
-      "", "", new SignUpResponse.SignUpData(), "", "");
-  public static void callSignUpService(SignUpRequest signUpRequest, Context context,
-                                       SignUpCallback signUpCallback) {
+public class MessagesRepository {
+  private static final String TAG = Constants.TAG + "." + MessagesRepository.class.getSimpleName();
+  private static final MessagesResponse serviceResponse = new MessagesResponse(
+      "", "", "", "");
+  
+  public static void callMessagesService(
+      Context context, MessagesCallback messagesCallback
+  ) {
+    
     ApiService apiService = NetworkClient.getApiService();
-    Call<SignUpResponse> responseCall = apiService.sendSignUpForm(signUpRequest);
+    
+    String accessToken = "Bearer " + context.getSharedPreferences(AUTH_PREFS_FILE, Context.MODE_PRIVATE).getString("meeeam_access_token", null);
+    
+    Call<MessagesResponse> responseCall = apiService.getMessages(accessToken, 17, 20);
+    
     assert responseCall != null;
     try {
-      responseCall.enqueue(new Callback<SignUpResponse>() {
+      responseCall.enqueue(new Callback<MessagesResponse>() {
         @Override
-        public void onResponse(@NonNull Call<SignUpResponse> call,
-                               @NonNull Response<SignUpResponse> response) {
+        public void onResponse(@NonNull Call<MessagesResponse> call,
+                               @NonNull Response<MessagesResponse> response) {
           if (response.code() == 200) {
             if (response.body() != null) {
               serviceResponse.setStatus(response.body().getStatus());
               serviceResponse.setMessage(response.body().getMessage());
-              serviceResponse.setData(response.body().getData());
+              serviceResponse.setMessages(response.body().getMessages());
               serviceResponse.setAccess_token(response.body().getAccess_token());
               serviceResponse.setRefresh_token(response.body().getRefresh_token());
               Log.d(TAG, new Gson().toJson(response.body()));
               Log.d(TAG, response.body().getMessage());
             }
-            signUpCallback.onSuccess(serviceResponse);
+            messagesCallback.onSuccess(serviceResponse);
           } else {
             serviceResponse.setStatus("failed");
             serviceResponse.setMessage(context.getString(R.string.network_error));
-            signUpCallback.onError(serviceResponse);
+            messagesCallback.onError(serviceResponse);
           }
         }
+        
         @Override
-        public void onFailure(@NonNull Call<SignUpResponse> call,
+        public void onFailure(@NonNull Call<MessagesResponse> call,
                               @NonNull Throwable throwable) {
           serviceResponse.setStatus("failed");
           serviceResponse.setMessage(context.getString(R.string.network_error));
@@ -60,8 +69,9 @@ public class SignUpRepository {
             throw throwable;
           } catch (Throwable e) {
             Log.d(TAG, Objects.requireNonNull(e.getMessage()));
+            Log.e(TAG, Log.getStackTraceString(e));
           }
-          signUpCallback.onError(serviceResponse);
+          messagesCallback.onError(serviceResponse);
         }
       });
     } catch (Exception e) {
@@ -70,9 +80,11 @@ public class SignUpRepository {
       Log.d(TAG, Objects.requireNonNull(e.getMessage()));
     }
   }
+  
   // Interface de callback pour l'inscription
-  public interface SignUpCallback {
-    void onSuccess(SignUpResponse response);
-    void onError(SignUpResponse response);
+  public interface MessagesCallback {
+    void onSuccess(MessagesResponse response);
+    
+    void onError(MessagesResponse response);
   }
 }
