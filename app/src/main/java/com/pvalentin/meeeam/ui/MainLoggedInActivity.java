@@ -18,7 +18,6 @@ import com.pvalentin.meeeam.R;
 import com.pvalentin.meeeam.data.network.NetworkClient;
 import com.pvalentin.meeeam.data.network.TokenAuthenticator;
 import com.pvalentin.meeeam.databinding.ActivityMainLoggedInBinding;
-import com.pvalentin.meeeam.util.dateUtils.AgeCalculator;
 
 public class MainLoggedInActivity extends MainActivity {
   

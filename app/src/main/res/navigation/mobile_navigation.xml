@@ -6,20 +6,28 @@
     app:startDestination="@+id/nav_profile">
 
     <fragment
-        android:id="@+id/nav_messages"
-        android:name="com.pvalentin.meeeam.ui.MessagesFragment"
-        android:label="@string/menu_messages"
-        tools:layout="@layout/fragment_messages" />
-
-    <fragment
         android:id="@+id/nav_profile"
-        android:name="com.pvalentin.meeeam.ui.ProfileFragment"
+        android:name="com.pvalentin.meeeam.ui.profile.ProfileFragment"
         android:label="@string/menu_profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
+        android:id="@+id/nav_new_post"
+        android:name="com.pvalentin.meeeam.ui.profile.NewPostFragment"
+        android:label="@string/new_post"
+        tools:layout="@layout/fragment_new_post" />
+
+    <fragment
+        android:id="@+id/nav_messages"
+        android:name="com.pvalentin.meeeam.ui.messages.MessagesFragment"
+        android:label="@string/menu_messages"
+        tools:layout="@layout/fragment_messages" />
+
+
+
+    <fragment
         android:id="@+id/nav_pages"
-        android:name="com.pvalentin.meeeam.ui.PagesFragment"
+        android:name="com.pvalentin.meeeam.ui.pages.PagesFragment"
         android:label="@string/menu_pages"
         tools:layout="@layout/fragment_pages" />
 </navigation>

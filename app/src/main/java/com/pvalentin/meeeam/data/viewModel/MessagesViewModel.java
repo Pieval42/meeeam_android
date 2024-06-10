@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.pvalentin.meeeam.ui.MessagesFragment;
+import com.pvalentin.meeeam.ui.messages.MessagesFragment;
 import com.pvalentin.meeeam.data.repository.MessagesRepository;
 import com.pvalentin.meeeam.data.network.response.MessagesResponse;
 

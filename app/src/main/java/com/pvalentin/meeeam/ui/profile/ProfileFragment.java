@@ -1,4 +1,4 @@
-package com.pvalentin.meeeam.ui;
+package com.pvalentin.meeeam.ui.profile;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -27,7 +27,11 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
@@ -43,7 +47,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.ParseException;
 import java.util.Objects;
-import java.util.Set;
 
 public class ProfileFragment extends Fragment {
   private static final String TAG = Constants.TAG + "." + ProfileFragment.class.getSimpleName();
@@ -90,7 +93,7 @@ public class ProfileFragment extends Fragment {
     }
     
     int userAge = AgeCalculator.calculateAge(userDetails.getBirthDate());
-    binding.profileUserAge.setText(Integer.toString(userAge) + " ans");
+    binding.profileUserAge.setText(userAge + " ans");
     
     if(userDetails.getVille() != null && !Objects.equals(userDetails.getVille(), "")){
       binding.profileUserLocationLayout.setVisibility(View.VISIBLE);
@@ -122,6 +125,12 @@ public class ProfileFragment extends Fragment {
         throw new RuntimeException(e);
       }
     }
+    
+    binding.btnNewPublication.setOnClickListener(v -> {
+      NavController navController = Navigation.findNavController(
+          requireActivity(), R.id.nav_host_fragment_content_main_logged_in);
+      navController.navigate(R.id.nav_new_post);
+    });
     
     return root;
   }

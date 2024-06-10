@@ -9,7 +9,7 @@ import com.pvalentin.meeeam.data.network.response.CountryResponse;
 import com.pvalentin.meeeam.data.network.response.SignUpResponse;
 import com.pvalentin.meeeam.data.repository.CountryRepository;
 import com.pvalentin.meeeam.data.repository.SignUpRepository;
-import com.pvalentin.meeeam.ui.SignUpFragment;
+import com.pvalentin.meeeam.ui.home.SignUpFragment;
 
 import java.util.ArrayList;
 

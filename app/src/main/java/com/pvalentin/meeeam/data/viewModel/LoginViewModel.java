@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 import com.pvalentin.meeeam.data.network.request.LoginRequest;
 import com.pvalentin.meeeam.data.network.response.LoginResponse;
 import com.pvalentin.meeeam.data.repository.LoginRepository;
-import com.pvalentin.meeeam.ui.LoginFragment;
+import com.pvalentin.meeeam.ui.home.LoginFragment;
 
 public class LoginViewModel extends ViewModel {
   private final MutableLiveData<Boolean> isAuthenticated = new MutableLiveData<>();

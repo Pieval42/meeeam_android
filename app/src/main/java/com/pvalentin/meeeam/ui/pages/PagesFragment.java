@@ -1,4 +1,4 @@
-package com.pvalentin.meeeam.ui;
+package com.pvalentin.meeeam.ui.pages;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

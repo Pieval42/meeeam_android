@@ -7,7 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
-import com.pvalentin.meeeam.ui.SignUpFragment;
+import com.pvalentin.meeeam.ui.home.SignUpFragment;
 
 import java.text.DateFormat;
 import java.util.Calendar;

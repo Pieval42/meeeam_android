@@ -6,12 +6,9 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.pvalentin.meeeam.data.network.response.MessagesResponse;
 import com.pvalentin.meeeam.data.network.response.PostResponse;
-import com.pvalentin.meeeam.data.repository.MessagesRepository;
 import com.pvalentin.meeeam.data.repository.PostRepository;
-import com.pvalentin.meeeam.ui.MessagesFragment;
-import com.pvalentin.meeeam.ui.ProfileFragment;
+import com.pvalentin.meeeam.ui.profile.ProfileFragment;
 
 public class ProfileViewModel extends ViewModel {
   

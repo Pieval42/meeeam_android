@@ -1,4 +1,4 @@
-package com.pvalentin.meeeam.ui;
+package com.pvalentin.meeeam.ui.home;
 
 import android.os.Bundle;
 

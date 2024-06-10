@@ -13,7 +13,7 @@
         android:background="?attr/backgroundColor"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        tools:context=".ui.LoginFragment"
+        tools:context=".ui.home.LoginFragment"
         android:fillViewport="true">
 
         <LinearLayout

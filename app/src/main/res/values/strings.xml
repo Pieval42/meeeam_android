@@ -87,4 +87,9 @@
     <string name="menu_pages">Pages</string>
     <string name="profile_picture">Image de profil</string>
     <string name="new_post">Nouvelle publication</string>
+    <string name="write_something">Écrivez quelque chose...</string>
+    <string name="add_file">Ajouter un fichier</string>
+    <string name="back">Retour</string>
+    <string name="publish">Publier</string>
+    <string name="image_to_upload">Image à ajouter</string>
 </resources>

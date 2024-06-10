@@ -1,4 +1,4 @@
-package com.pvalentin.meeeam.ui;
+package com.pvalentin.meeeam.ui.messages;
 
 import static com.pvalentin.meeeam.util.dateUtils.ConvertDateFormat.convertDateFormatSqlToFr;
 

@@ -1,4 +1,4 @@
-package com.pvalentin.meeeam.ui;
+package com.pvalentin.meeeam.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,11 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -21,6 +18,7 @@ import android.view.ViewGroup;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.pvalentin.meeeam.R;
+import com.pvalentin.meeeam.ui.MainLoggedInActivity;
 import com.pvalentin.meeeam.util.Constants;
 import com.pvalentin.meeeam.data.viewModel.LoginViewModel;
 import com.pvalentin.meeeam.databinding.FragmentLoginBinding;

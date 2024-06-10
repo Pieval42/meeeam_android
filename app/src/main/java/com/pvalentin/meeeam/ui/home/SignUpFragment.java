@@ -1,4 +1,4 @@
-package com.pvalentin.meeeam.ui;
+package com.pvalentin.meeeam.ui.home;
 
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_CUSTOM;
 import static com.pvalentin.meeeam.util.DrawableUtils.getProgressBarDrawable;
