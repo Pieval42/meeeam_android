@@ -1,5 +1,8 @@
 package com.pvalentin.meeeam.ui.profile;
 
+import static com.pvalentin.meeeam.util.Constants.API_BASE_DIRECTORY;
+import static com.pvalentin.meeeam.util.Constants.HOST;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -237,6 +240,7 @@ public class ProfileFragment extends Fragment {
     // Créer l'ImageView
     try {
       if (post.getUrlPostFile() != null) {
+        String fileUrl = API_BASE_DIRECTORY + post.getUrlPostFile();
         ImageView imageView = new ImageView(requireContext());
         imageView.setLayoutParams(new LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
@@ -247,7 +251,7 @@ public class ProfileFragment extends Fragment {
         
         int size = dpToPx(300);
         Glide.with(this)
-            .load(post.getUrlPostFile())
+            .load(fileUrl)
             .override(size)
             .into(imageView);
         

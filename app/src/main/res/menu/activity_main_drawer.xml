@@ -10,11 +10,11 @@
             android:title="@string/menu_profile" />
         <item
             android:id="@+id/nav_messages"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_messages"
             android:title="@string/menu_messages" />
         <item
             android:id="@+id/nav_pages"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_menu_pages"
             android:title="@string/menu_pages" />
     </group>
 </menu>

@@ -4,6 +4,11 @@ import static java.text.DateFormat.getDateInstance;
 
 import android.annotation.SuppressLint;
 
+import org.threeten.bp.LocalDateTime;
+import org.threeten.bp.ZoneId;
+import org.threeten.bp.ZonedDateTime;
+import org.threeten.bp.format.DateTimeFormatter;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,9 +33,14 @@ public class ConvertDateFormat {
   }
   
   public static String convertDateFormatSqlToFr(String oldDateString) throws ParseException {
-    DateFormat frFormat = getDateInstance(DateFormat.SHORT);
-    SimpleDateFormat sqlDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
-    Date date = sqlDateFormat.parse(oldDateString);
-    return frFormat.format(date);
+    DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    LocalDateTime localDateTime = LocalDateTime.parse(oldDateString, inputFormatter);
+    
+    ZonedDateTime zonedDateTime = localDateTime.atZone(ZoneId.of("UTC"))
+        .withZoneSameInstant(ZoneId.of("Europe/Paris"));
+    
+    DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    
+    return zonedDateTime.format(outputFormatter);
   }
 }

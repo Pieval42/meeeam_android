@@ -5,6 +5,11 @@ import static com.pvalentin.meeeam.util.Constants.HOST;
 import com.google.gson.annotations.SerializedName;
 import com.pvalentin.meeeam.util.dateUtils.ConvertDateFormat;
 
+import org.threeten.bp.LocalDateTime;
+import org.threeten.bp.ZoneId;
+import org.threeten.bp.ZonedDateTime;
+import org.threeten.bp.format.DateTimeFormatter;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.ParseException;
@@ -77,9 +82,19 @@ public class PostResponse extends ApiResponse {
     }
     
     public String getDateTimePost() throws ParseException {
-      String date = ConvertDateFormat.convertDateFormatSqlToFr(dateTimePost.split(" ")[0]);
-      String time = dateTimePost.split(" ")[1];
-      return date + " " + time;
+      DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+      LocalDateTime localDateTime = LocalDateTime.parse(dateTimePost, inputFormatter);
+      
+      ZonedDateTime zonedDateTime = localDateTime.atZone(ZoneId.of("UTC"))
+          .withZoneSameInstant(ZoneId.of("Europe/Paris"));
+      
+      DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+      
+      return zonedDateTime.format(outputFormatter);
+      
+//      String date = ConvertDateFormat.convertDateFormatSqlToFr(dateTimePost.split(" ")[0]);
+//      String time = dateTimePost.split(" ")[1];
+//      return date + " " + time;
     }
     
     public void setDateTimePost(String dateTimePost) {
@@ -87,17 +102,7 @@ public class PostResponse extends ApiResponse {
     }
     
     public String getUrlPostFile() throws URISyntaxException {
-      String newUrl = urlPostFile;
-      if(urlPostFile == null) {
-        return null;
-      }
-      URI uri = new URI(urlPostFile);
-      if(Objects.equals(uri.getHost(), "localhost")) {
-        URI newUri = new URI(uri.getScheme(), uri.getUserInfo(), HOST, uri.getPort(), uri.getPath(),
-            uri.getQuery(), uri.getFragment());
-        newUrl = newUri.toString();
-      }
-      return newUrl;
+      return urlPostFile;
     }
     
     public void setUrlPostFile(String urlPostFile) {

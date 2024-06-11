@@ -25,7 +25,6 @@
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        android:text="@string/nav_header_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textColor="?attr/colorPrimary"/>
 

@@ -30,7 +30,7 @@ public class MessagesViewModel extends ViewModel {
           
           @Override
           public void onError(MessagesResponse response) {
-            messagesFragment.displayMessages(response);
+            messagesFragment.displayError(response);
           }
         });
   }

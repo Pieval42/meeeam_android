@@ -43,8 +43,7 @@ public interface ApiService {
   @GET("messages/get")
   Call<MessagesResponse> getMessages(
       @Header("Authorization") String accessToken,
-      @Query("id_utilisateur") int idUtilisateur,
-      @Query("id_utilisateur_2") int idUtilisateur2
+      @Query("id_utilisateur") int idUtilisateur
   );
   
   @GET("profil/getPublications")

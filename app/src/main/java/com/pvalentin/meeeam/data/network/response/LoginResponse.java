@@ -1,14 +1,8 @@
 package com.pvalentin.meeeam.data.network.response;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Set;
 
 public class LoginResponse extends ApiResponse {
 
@@ -139,7 +133,7 @@ public class LoginResponse extends ApiResponse {
       this.userId = userId;
     }
     
-    public String getUsrPseudo() {
+    public String getUserPseudo() {
       return userPseudo;
     }
     

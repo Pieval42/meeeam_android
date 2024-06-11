@@ -3,6 +3,7 @@ package com.pvalentin.meeeam.data.repository;
 import static com.pvalentin.meeeam.util.Constants.AUTH_PREFS_FILE;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -28,12 +29,15 @@ public class MessagesRepository {
   public static void callMessagesService(
       Context context, MessagesCallback messagesCallback
   ) {
+    SharedPreferences authPrefs = context.getSharedPreferences(AUTH_PREFS_FILE, Context.MODE_PRIVATE);
     
     ApiService apiService = NetworkClient.getApiService();
     
-    String accessToken = "Bearer " + context.getSharedPreferences(AUTH_PREFS_FILE, Context.MODE_PRIVATE).getString("meeeam_access_token", null);
+    String accessToken = "Bearer " + authPrefs.getString("meeeam_access_token", null);
     
-    Call<MessagesResponse> responseCall = apiService.getMessages(accessToken, 17, 20);
+    int idUtilisateur = authPrefs.getInt("meeeam_user_id", -1);
+    
+    Call<MessagesResponse> responseCall = apiService.getMessages(accessToken, idUtilisateur);
     
     assert responseCall != null;
     try {
